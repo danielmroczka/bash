@@ -1,4 +1,8 @@
 #!/bin/sh
+#
+# Downloads, installs and configures groovy binary
+#
+
 read -p "Enter Groovy version to download and install: " version
 
 url=http://dl.bintray.com/groovy/maven/groovy-binary-${version}.zip
@@ -28,7 +32,8 @@ sudo update-alternatives --install "/usr/bin/java2groovy" "java2groovy" $prefix"
 sudo update-alternatives --config groovy
 
 groovy -v
-
+# cleanup
 rm groovy-binary-${version}.zip
+rm -rf groovy-${version}
 
 
